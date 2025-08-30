@@ -13,6 +13,31 @@ class MusicPlayer extends StatefulWidget {
 class _MusicPlayerState extends State<MusicPlayer> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Text('Music Player')));
+    return Scaffold(
+      appBar: AppBar(title: Text('Music Player')),
+      body: SafeArea(
+        child: ListView.builder(
+          itemCount: 50,
+          itemBuilder: (context, index) {
+            return ListTile(
+              leading: Container(
+                height: 50.0,
+                width: 50.0,
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(5.0),
+                ),
+              ),
+              title: Text('Song name'),
+              subtitle: Text('Artist'),
+              trailing: IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.more_vert_rounded),
+              ),
+            );
+          },
+        ),
+      ),
+    );
   }
 }
