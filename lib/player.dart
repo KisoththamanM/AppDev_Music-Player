@@ -1,5 +1,30 @@
 import 'package:flutter/material.dart';
 
+class PlayPauseButton extends StatefulWidget {
+  const PlayPauseButton({super.key});
+
+  @override
+  State<PlayPauseButton> createState() => _PlayPauseButtonState();
+}
+
+class _PlayPauseButtonState extends State<PlayPauseButton> {
+  bool isPlaying = false;
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: () {
+        setState(() {
+          isPlaying = !isPlaying;
+        });
+      },
+      icon: Icon(
+        isPlaying ? Icons.pause_rounded : Icons.play_arrow_rounded,
+        size: 60.0,
+      ),
+    );
+  }
+}
+
 class Player extends StatefulWidget {
   const Player({super.key});
 
@@ -56,10 +81,7 @@ class _PlayerState extends State<Player> {
                         onPressed: () {},
                         icon: Icon(Icons.skip_previous_rounded, size: 50.0),
                       ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.play_arrow_rounded, size: 60.0),
-                      ),
+                      PlayPauseButton(),
                       IconButton(
                         onPressed: () {},
                         icon: Icon(Icons.skip_next_rounded, size: 50.0),
