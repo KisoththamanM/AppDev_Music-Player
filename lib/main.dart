@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_player/player.dart';
 
 void main() {
   runApp(MaterialApp(debugShowCheckedModeBanner: false, home: MusicPlayer()));
@@ -20,6 +21,12 @@ class _MusicPlayerState extends State<MusicPlayer> {
           itemCount: 50,
           itemBuilder: (context, index) {
             return ListTile(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Player()),
+                );
+              },
               leading: Container(
                 height: 50.0,
                 width: 50.0,
